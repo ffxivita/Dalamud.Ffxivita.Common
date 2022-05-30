@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "isdTbHNY/M+8Vrmslw6e61p2oyK+EcUMsKe5zdQeNLDuEEHX/SSDWT+oByp/IniWM9p+6qMruFNBa68Bhpj1TQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\darka\\RiderProjects\\Dalamud.FFXIVITA.Common\\Dalamud.Ffxivita.Common\\Dalamud.Ffxivita.Common\\Dalamud.Ffxivita.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\darka\\.nuget\\packages\\gitversion.msbuild\\5.10.1\\gitversion.msbuild.5.10.1.nupkg.sha512",
+    "C:\\Users\\darka\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\darka\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\darka\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

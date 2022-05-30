@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dalamud.Ffxivita.Common", "Dalamud.Ffxivita.Common", "{4463AD5C-659D-41A6-A054-D1317CEEE25F}"
+	ProjectSection(SolutionItems) = preProject
+		Dalamud.Ffxivita.Common\Directory.Build.props = Dalamud.Ffxivita.Common\Directory.Build.props
+		Dalamud.Ffxivita.Common\.editorconfig = Dalamud.Ffxivita.Common\.editorconfig
+		Dalamud.Ffxivita.Common\Dalamud.Ffxivita.Common.sln.DotSettings = Dalamud.Ffxivita.Common\Dalamud.Ffxivita.Common.sln.DotSettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dalamud.Ffxivita.Common", "Dalamud.Ffxivita.Common\Dalamud.Ffxivita.Common\Dalamud.Ffxivita.Common.csproj", "{A29663F4-E348-46AE-A7BF-A5283F993A8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{845AC207-815B-49CB-A413-F720A453B34E}.Debug|x64.ActiveCfg = Debug|x64
+		{845AC207-815B-49CB-A413-F720A453B34E}.Debug|x64.Build.0 = Debug|x64
+		{845AC207-815B-49CB-A413-F720A453B34E}.Release|x64.ActiveCfg = Release|x64
+		{A29663F4-E348-46AE-A7BF-A5283F993A8E}.Debug|x64.ActiveCfg = Debug|x64
+		{A29663F4-E348-46AE-A7BF-A5283F993A8E}.Debug|x64.Build.0 = Debug|x64
+		{A29663F4-E348-46AE-A7BF-A5283F993A8E}.Release|x64.ActiveCfg = Release|x64
+		{A29663F4-E348-46AE-A7BF-A5283F993A8E}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3D67CD2-F28F-4F47-952E-C4AD88220C69}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A29663F4-E348-46AE-A7BF-A5283F993A8E} = {4463AD5C-659D-41A6-A054-D1317CEEE25F}
+	EndGlobalSection
+EndGlobal

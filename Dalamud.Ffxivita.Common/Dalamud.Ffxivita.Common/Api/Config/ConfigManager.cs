@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using Dalamud.Configuration;
+using Dalamud.Ffxivita.Common.Api.Chat;
+using Dalamud.Ffxivita.Common.Api.Utils;
+using Dalamud.Ffxivita.Common.Api.Voiceroid2Proxy;
+using Dalamud.Logging;
+using Newtonsoft.Json;
+
+namespace Dalamud.Ffxivita.Common.Api.Config
+{
+    internal partial class ConfigManager<TConfiguration> : IConfigManager<TConfiguration>
+        where TConfiguration : class, IPluginConfiguration, new()
+    {
+        private readonly IChatClient chatClient;
+        private readonly PluginConfigurations dalamud = new(FfxivitaEnv.XivLauncherDir);
+        private readonly string pluginName;
+        private readonly Func<IVoiceroid2ProxyClient> voiceroid2ProxyClient;
+
+        public ConfigManager(IChatClient chatClient,
+            Func<IVoiceroid2ProxyClient> voiceroid2ProxyClient,
+            string pluginName)
+        {
+            this.chatClient = chatClient;
+            this.voiceroid2ProxyClient = voiceroid2ProxyClient;
+            this.pluginName = pluginName;
+
+            Config = dalamud.LoadForType<TConfiguration>(pluginName);
+            PluginLog.Verbose("Config loaded: {Config}", JsonConvert.SerializeObject(Config));
+        }
+
+        public TConfiguration Config { get; }
+
+        public bool TryUpdate(string key, string? value, bool useTts)
+        {
+            var updater = new FieldUpdater(Config, chatClient, voiceroid2ProxyClient.Invoke(), useTts);
+
+            var fields = EnumerateConfigFields(true);
+            return updater.TryUpdate(key, value, fields);
+        }
+
+        public void Save()
+        {
+            dalamud.Save(Config, pluginName);
+            PluginLog.Verbose("Config saved: {Config}", JsonConvert.SerializeObject(Config));
+        }
+
+        public void Dispose()
+        {
+            Save();
+        }
+
+        private static IEnumerable<FieldInfo> EnumerateConfigFields(bool includeUpdateIgnore = false)
+        {
+            var result = typeof(TConfiguration).GetFields()
+                .Where(x => x.FieldType == typeof(float) || x.FieldType == typeof(bool) || x.FieldType == typeof(int) ||
+                            x.FieldType == typeof(string));
+
+            return !includeUpdateIgnore
+                ? result
+                : result.Where(x => x.GetCustomAttribute<UpdateProhibitedAttribute>() == null);
+        }
+    }
+}
