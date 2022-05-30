@@ -1,6 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <AssemblyTitle>Libreria per Plugin FFXIVITA</AssemblyTitle>
+        <Company>AHD</Company>
+        <Product>FFXIVITA</Product>
+        <Copyright>Copyright (c) Hanna</Copyright>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
